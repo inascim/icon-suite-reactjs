@@ -7,7 +7,7 @@ import {Box} from "@mui/material";
 
 const links = [
     {
-        name: 'Home',
+        name: 'IconSuite',
         to: '/',
         active: 'home'
     },
@@ -49,10 +49,11 @@ export default function Navbar({darkMode, handleClick}) {
             <Box 
                 component={'ul'} 
                 display={'flex'} 
-                justifyContent={'center'} 
+                justifyContent={'space-between'} 
                 alignItems={'center'}
                 gap={{xs: '2rem', md: '8rem'}}
-                textTransform={'lowercase'} fontSize={'1rem'}
+                fontSize={'2rem'}
+                px={2}
             >
                 {links.map(handleCreateLink)}
                 <li>
