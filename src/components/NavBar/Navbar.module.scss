@@ -1,19 +1,15 @@
 @import "../../variables.modules.scss";
 
 nav {
-  transition: $transition;
+  background-color: $bluebg;
 }
 
-.active {
-  border-bottom: 5px solid;
-  border-image-slice: 1;
+.user {
+  font-size: 50;
+  transform: scale(1.2);
 }
 
-li {
-  transition: $transition;
-
-  &:hover {
-    transform: translateY(-3px);
-    transition: $transition;
-  }
+.logo {
+  height: 50px;
+  width: 120px;
 }

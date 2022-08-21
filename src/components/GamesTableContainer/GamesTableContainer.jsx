@@ -3,6 +3,18 @@ import GameNavBar from '../GameNavBar/GameNavBar';
 import GamesInteractionBar from '../GamesInteractionBar/GamesInteractionBar';
 import GamesCardList from '../GamesCardList/GamesCardList';
 import { Grid, Card, CardContent } from "@mui/material";
+import { useQuery, gql } from "@apollo/client";
+
+const FILMS_QUERY = gql`
+    {
+        games{
+            _id 
+            players { playerName playerScore playerCards } 
+            cardData
+            gameType
+        }
+    }
+`;
 
 export const GamesTableContainer = ({debug = false}) => {
 
@@ -28,6 +40,10 @@ export const GamesTableContainer = ({debug = false}) => {
             dificulty: 'R U MAD ?'
         },
     ]
+
+    const { data, loading, error } = useQuery(FILMS_QUERY);
+
+    console.log({ data, loading, error });
 
     return (
         <Card sx={{ width: '100%', height: '100%' }}>

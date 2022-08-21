@@ -26,9 +26,6 @@ export default function BaseLayout() {
                 <Routes>
                     <Route exact path={'/'} element={<Home/>}/>
                     <Route exact path={'/:id'} element={<GameRoom/>}/>
-                    {/* <Route exact path={'/about'} element={<About/>}/>
-                    <Route exact path={'/portfolio'} element={<Portfolio/>}/>
-                    <Route exact path={'/Skills'} element={<Skills/>}/> */}
                 </Routes>
             </Grid>
         </Box>

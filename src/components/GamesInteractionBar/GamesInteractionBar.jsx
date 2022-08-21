@@ -13,7 +13,7 @@ const GamesInteractionBar = ({games}) => {
                         variant="outlined" size={'small'} />
                 </Grid>
                 <Grid item xs={4}>
-                    <Button onclick={handleClickFilter} variant="contained" 
+                    <Button onClick={handleClickFilter} variant="contained" 
                         size="small" endIcon={<FilterAlt />}>
 
                         Filter
