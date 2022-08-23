@@ -13,8 +13,12 @@ const GameCard = ({
     }
 }) => {
     return (
-        <Card sx={{ marginBottom: 1}}>
-            <CardActionArea>
+        <Card 
+            sx={{ marginBottom: 1}}
+        >
+            <CardActionArea
+                onClick={() => {console.log('AAAAAAAAAAA')}}
+            >
                 <CardContent>
                     <Grid container direction={'column'}>
                         <Grid item>

@@ -3,15 +3,27 @@ import GameNavBar from '../GameNavBar/GameNavBar';
 import GamesInteractionBar from '../GamesInteractionBar/GamesInteractionBar';
 import GamesCardList from '../GamesCardList/GamesCardList';
 import { Grid, Card, CardContent } from "@mui/material";
-import { useQuery, gql } from "@apollo/client";
+import { useQuery, gql, useSubscription } from "@apollo/client";
 
-const FILMS_QUERY = gql`
+
+const GAMES_QUERY = gql`
     {
         games{
             _id 
-            players { playerName playerScore playerCards } 
-            cardData
-            gameType
+            gameCards
+            gameMode
+            gameDificulty
+            players { playerName playerScore playerCards} 
+        }
+    }
+`;
+
+const COMMENTS_SUBSCRIPTION = gql`
+    subscription {
+        gamesSub {
+            gameName
+            gameMode
+            gameDificulty
         }
     }
 `;
@@ -41,9 +53,11 @@ export const GamesTableContainer = ({debug = false}) => {
         },
     ]
 
-    const { data, loading, error } = useQuery(FILMS_QUERY);
+    const { data, loading, error } = useQuery(GAMES_QUERY);
+    const { data: dSub, loading: lSub, error: eSub } = useSubscription(COMMENTS_SUBSCRIPTION);
 
     console.log({ data, loading, error });
+    console.log({ dSub, lSub, eSub });
 
     return (
         <Card sx={{ width: '100%', height: '100%' }}>
